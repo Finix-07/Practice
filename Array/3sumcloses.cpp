@@ -2,15 +2,17 @@
 
 using namespace std;
 
-vector<vector<int>> threeSum(vector<int>& nums) {
+int threeSumClosest(vector<int>& nums, int target) {
     
     sort(nums.begin(),nums.end());
-    vector<vector<int>> result;
+
+    int result;
 
     int length = nums.size();
     if (length < 3){
-        return {};
+        return 0;
     }
+    int diff = INT_MAX;
 
     for(int i = 0 ; i < length - 2 ; i++){
 
@@ -18,36 +20,31 @@ vector<vector<int>> threeSum(vector<int>& nums) {
             continue;
         }
 
-        int targ = -nums[i];
+        int targ = target-nums[i];
         int l = i + 1;
         int r = length - 1;
-
         while(l < r){
-
-            if (nums[l] + nums[r] == targ){
-                result.push_back({nums[l],nums[r],-targ});
-                while(l < r && nums[l] == nums[l+1]){
-                    l++;
-                }
-                while(l < r && nums[r] == nums[r-1]){
-                    r--;
-                }
-                l++;
+            int curr_diff = abs(target - nums[i] - nums[l] - nums[r]);
+            if (curr_diff < diff){
+                result = nums[i] + nums[l] + nums[r];
             }
-            else if (nums[l] + nums[r] < targ){
-
+            if (nums[l] + nums[r] < targ){
                 l++;
             }
             else {
                 r--;
             }
+            diff = min(diff, curr_diff);
         }
     }
 
     return result;
 }
 
+
 int main(){
+
 
     return 0;
 }
+
