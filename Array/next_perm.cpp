@@ -19,6 +19,7 @@ void nextPermutation(vector<int>& nums) {
     if (idx == -1){
         reverse(nums.begin(), nums.end());
     }
+    
     else{
 
         for(int i = n-1 ; i > idx ; i--){

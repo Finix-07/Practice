@@ -3,10 +3,10 @@
 using namespace std;
 
 vector<vector<int>> diagonalSort(vector<vector<int>>& mat) {
-        // int m = mat.size();
-        // int n = mat[0].size();
-        // unordered_map<int, vector<int>> mp;
-/*
+        int m = mat.size();
+        int n = mat[0].size();
+        unordered_map<int, vector<int>> mp;
+
         // push the elements into a map
         for(int i = 0; i < m ; i++){
             for (int j = 0; j < n ; j++){
@@ -31,7 +31,7 @@ vector<vector<int>> diagonalSort(vector<vector<int>>& mat) {
         }
 
         return mat;
-*/
+
 /*
 GFG-
 
@@ -41,9 +41,6 @@ Each diagonal in the upper right triangle of the rectangular grid is sorted in d
 The major diagonal in the grid starting from the top-left corner is not rearranged. 
 
 */
-        int n = mat.size();
-        int m = mat[0].size();
-        unordered_map<int, vector<int>> mp;
         
         for(int i = 0 ; i < n ; i++){
             for(int j = 0 ; j < m ;j++){
